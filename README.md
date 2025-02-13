@@ -1,6 +1,4 @@
-# IQDMS
-
-Sandbox Base URL: https://vsstest.ddns.me:8090
+# IQDMS Documentation
 
 ## General
 ### Standard Response Model for most request when Success(200)/BadRequest(400) occur.
