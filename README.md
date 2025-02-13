@@ -97,7 +97,7 @@ This API is used to search TIN
 This API is used to validate TIN
 
 <details>
-<summary><code>GET</code></code><code><b>/api/e-invoice/SearchTIN?companyID={companyID}&appName={appName}&tin={tin}&type={type}&value={value}</b></code></summary>
+<summary><code>GET</code></code><code><b>/api/e-invoice/ValidateTIN?companyID={companyID}&appName={appName}&tin={tin}&type={type}&value={value}</b></code></summary>
 
 #### Parameters
 > | name | data type | description | value example | rquirement |
@@ -247,8 +247,34 @@ Body of the request need to have a [document](#document) below, all the field le
 
 </details>
 
+### Get Document
+This API allows caller to get full details of the document when requested by unique ID assigned to document by MyInvois System.
+
+Details include original XML or JSON submission and additional tax authority metadata i.e., additional ID, and current status. As the document is submitted in XML or JSON, this API returns document information also in either XML or JSON.
+
+Document with invalid status will not be returned. Details of the invalid document can be fetched by Get Document Details API.
+
+<details>
+<summary><code>GET</code></code><code><b>/api/e-invoice/GetDocumentcompanyID={companyID}&appName={appName}&uuid={uuid}</b></code></summary>
+
+#### Parameters
+> | name | data type | description | value example | rquirement |
+> | -------------- | ---- | ----------- | ------------- | ----------- |
+> | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
+> | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
+> | uuid | String | Unique ID of the document to retrieve.  | `F9D425P6DS7D8IU` | Mandatory |
+
+#### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | [GetDocument](https://sdk.myinvois.hasil.gov.my/einvoicingapi/07-get-document/#successful-response) |
+> | `400`         | `application/json`                | [Standard Response Model](#general) |
+
+</details>
+
 ### Get Document Details
-This API is used to get document detail
+This API allows caller to get full details of the document when requested by unique ID assigned to document by MyInvois System including the detailed validation results
 
 <details>
 <summary><code>GET</code></code><code><b>/api/e-invoice/GetDocumentDetails?companyID={companyID}&appName={appName}&uuid={uuid}</b></code></summary>
@@ -264,7 +290,7 @@ This API is used to get document detail
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | `[GetDocumentDetails](https://sdk.myinvois.hasil.gov.my/einvoicingapi/08-get-document-details/#successful-response)`                            |
-> | `400`         | `application/json`                | `[Standard Response Model](#general)`                       |
+> | `200`         | `application/json`                | [GetDocumentDetails](https://sdk.myinvois.hasil.gov.my/einvoicingapi/08-get-document-details/#successful-response) |
+> | `400`         | `application/json`                | [Standard Response Model](#general)` |
 
 </details>
