@@ -294,3 +294,27 @@ This API allows caller to get full details of the document when requested by uni
 > | `400`         | `application/json`                | [Standard Response Model](#general)` |
 
 </details>
+
+
+### Cancel Document
+This API allows issuer to cancel previously issued document, either self-induced cancellation or by accepting a rejection request made by the buyer.
+
+<details>
+<summary><code>GET</code></code><code><b>/api/e-invoice/CancelDocument?companyID={companyID}&appName={appName}&uuid={uuid}&reason={reason}</b></code></summary>
+
+#### Parameters
+> | name | data type | description | value example | rquirement |
+> | -------------- | ---- | ----------- | ------------- | ----------- |
+> | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
+> | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
+> | uuid | String | Unique ID of the document to retrieve.  | `F9D425P6DS7D8IU` | Mandatory |
+> | reason | String | Reason for cancelling the document. | `Wrong details` | Mandatory |
+
+#### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | [CancelDocument](https://sdk.myinvois.hasil.gov.my/einvoicingapi/03-cancel-document/#outputs) |
+> | `400`         | `application/json`                | [Standard Response Model](#general)` |
+
+</details>
