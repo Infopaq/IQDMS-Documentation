@@ -43,11 +43,26 @@ This API is used to get token for API's that need authorization
 <details>
 <summary><code>GET</code></code><code><b>/api/Token/GetToken</b></code></summary>
 
-#### Parameters
+#### Body Parameters
 > | name | data type | description | value example | rquirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | client_id | String | Client ID Provided by VSS | | Mandatory |
 > | client_secret | String | Client Secret Provided by VSS | | Mandatory |
+> | onbehalfof | String | Company ID provided by VSS | | Mandatory |
+> | grant_type | String | Must be ‘client_credentials’ | | Mandatory |
+> | scope | String | Optional, can be leave blank. | | Optional |
+
+##### JSON Example
+```json
+{
+  "client_id": "your-client-id-here",
+  "client_secret": "your-client-secret-here",
+  "grant_type": "client_credentials",
+  "onbehalfof": "VSS",
+  "scope": ""
+}
+```
+
 
 #### Responses
 
