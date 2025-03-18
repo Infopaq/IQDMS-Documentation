@@ -44,7 +44,7 @@ This API is used to get token for API's that need authorization
 <summary><code>GET</code></code><code><b>/api/Token/GetToken</b></code></summary>
 
 #### Body Parameters
-> | name | data type | description | value example | rquirement |
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | client_id | String | Client ID Provided by VSS | | Mandatory |
 > | client_secret | String | Client Secret Provided by VSS | | Mandatory |
@@ -85,6 +85,8 @@ This API is used to get token for API's that need authorization
 ## IRB Functions
 All the API call in this section need to contains [Authorization Header](#authenticated-call)
 
+## TIN
+
 ### Search TIN
 This API is used to search TIN
 
@@ -92,7 +94,7 @@ This API is used to search TIN
 <summary><code>GET</code></code><code><b>/api/e-invoice/SearchTIN?companyID={companyID}&appName={appName}&type={type}&value={value}</b></code></summary>
 
 #### Parameters
-> | name | data type | description | value example | rquirement |
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
 > | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
@@ -115,7 +117,7 @@ This API is used to validate TIN
 <summary><code>GET</code></code><code><b>/api/e-invoice/ValidateTIN?companyID={companyID}&appName={appName}&tin={tin}&type={type}&value={value}</b></code></summary>
 
 #### Query Parameters
-> | name | data type | description | value example | rquirement |
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
 > | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
@@ -132,6 +134,8 @@ This API is used to validate TIN
 
 </details>
 
+## Documents
+
 ### Submit Document
 This API is used to submit E-Invoice
 
@@ -139,7 +143,7 @@ This API is used to submit E-Invoice
 <summary><code>GET</code></code><code><b>/api/e-invoice/SubmitDocument?companyID={companyID}&appName={appName}&appVersion={appVersion}&isSubmit={isSubmit}&isAutoSubmit={isAutoSubmit}</b></code></summary>
 
 #### Query Parameters
-> | name | data type | description | value example | rquirement |
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
 > | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
@@ -158,7 +162,7 @@ Body of the request need to have a [document](#document) below, all the field le
 * Delivery
 > * Field for delivery information
 
-> | name | data type | description | value example | rquirement |
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | SupplierID | String | Supplier ID (for internal used only, won't be able to check at MyInvois Portal) | | Mandatory |
 > | SupplierName | String | Name of business or individual who will be the supplier providing the goods / services in a commercial transaction. | | Mandatory |
@@ -221,14 +225,14 @@ Body of the request need to have a [document](#document) below, all the field le
 > | DeliveryCountry | String | Delivery's Country | | Mandatory |
 
 ##### DocReference
-> | name | data type | description | value example | rquirement |
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | ID | String | Unique identifier assigned on the Declaration of Goods Imported. Multiple reference numbers can be separated by commas (,) without space. | `FTA` | Mandatory |
 > | DocumentType | String | Type of the specified reference | `FreeTradeAgreement` | Mandatory |
 > | DocumentDescription | String | Details of the reference | `ASEAN-Australia-New Zealand FTA (AANZFTA)` | Mandatory |
 
 ##### JSDet
-> | name | data type | description | value example | rquirement |
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | ItemNo | String | Sequence of the item, will be sorted when submit. | `0010` | Mandatory |
 > | Description | String | Description of the item. | `FreeTradeAgreement` | Mandatory |
@@ -245,7 +249,7 @@ Body of the request need to have a [document](#document) below, all the field le
 > | [ClassificationCode](https://sdk.myinvois.hasil.gov.my/codes/classification-codes/) | String | Category of products or services being billed as a result of a commercial transaction. More than 1 classification codes can be added for goods / services included in the e-Invoice. | `001` | Mandatory |
 
 ##### JSDetTax
-> | name | data type | description | value example | rquirement |
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | [TaxType](https://sdk.myinvois.hasil.gov.my/codes/tax-types/) | String | Tax types. | `06` | Mandatory |
 > | TaxRate | Number | Tax Rate for the tax. | `0` | Mandatory |
@@ -273,7 +277,7 @@ Document with invalid status will not be returned. Details of the invalid docume
 <summary><code>GET</code></code><code><b>/api/e-invoice/GetDocumentcompanyID={companyID}&appName={appName}&uuid={uuid}</b></code></summary>
 
 #### Parameters
-> | name | data type | description | value example | rquirement |
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
 > | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
@@ -295,7 +299,7 @@ This API allows caller to get full details of the document when requested by uni
 <summary><code>GET</code></code><code><b>/api/e-invoice/GetDocumentDetails?companyID={companyID}&appName={appName}&uuid={uuid}</b></code></summary>
 
 #### Parameters
-> | name | data type | description | value example | rquirement |
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
 > | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
@@ -315,15 +319,26 @@ This API allows caller to get full details of the document when requested by uni
 This API allows issuer to cancel previously issued document, either self-induced cancellation or by accepting a rejection request made by the buyer.
 
 <details>
-<summary><code>GET</code></code><code><b>/api/e-invoice/CancelDocument?companyID={companyID}&appName={appName}&uuid={uuid}&reason={reason}</b></code></summary>
+<summary><code>PUT</code></code><code><b>/api/e-invoice/CancelDocument?companyID={companyID}&appName={appName}&uuid={uuid}</b></code></summary>
 
-#### Parameters
-> | name | data type | description | value example | rquirement |
+#### Query Parameters
+> | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
 > | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
 > | uuid | String | Unique ID of the document to retrieve.  | `F9D425P6DS7D8IU` | Mandatory |
-> | reason | String | Reason for cancelling the document. | `Wrong details` | Mandatory |
+
+### Body Parameters
+> | name | data type | description | value example | requirement |
+> | -------------- | ---- | ----------- | ------------- | ----------- |
+> | Reason | String | ReasonReason for cancelling the document. (The length of the reason would be limited to 300 chars) | `Customer Cancel Order` | Mandatory |
+
+#### Sample JSON
+```
+{
+    "Reason": "Customer Cancel Order"
+}
+```
 
 #### Responses
 
