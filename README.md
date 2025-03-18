@@ -355,11 +355,33 @@ This API allows issuer to cancel previously issued document, either self-induced
 > | `400`         | `application/json`                | [Standard Response Model](#general) |
 
 #### Cancel Document Response Parameters
-> | name | data type | description | value example |
-> | -------------- | ---- | ----------- | ------------- |
-> | uuid | String | UUID of the document | `UUID` |
-> | status | String | Status of the document | `Cancelled` |
-> | badRequestModel | [Standard Response Model](#standardresponsemodel) | Details of error if the request failed. |  |
+> | name | data type | description |
+> | -------------- | ---- | ----------- |
+> | uuid | String | UUID of the document |
+> | status | String | Status of the document |
+> | badRequestModel | [Standard Response Model](#standardresponsemodel) | Details of error if the request failed. |
 
+##### Sample Response
+```
+{
+  "uuid": "NM9WK1N89S6RJF3GCH5ZJ2KB45",
+  "status": null,
+  "error": {
+    "propertyName": "",
+    "propertyPath": "",
+    "errorCode": "",
+    "error": "",
+    "errorMs": "",
+    "innerError": ""
+  },
+  "badRequestModel": {
+    "isError": true,
+    "error": "",
+    "error_description": "Documents cannot be canceled after 72 hours of submission.",
+    "error_uri": "",
+    "uuid": ""
+  }
+}
+```
 
 </details>
