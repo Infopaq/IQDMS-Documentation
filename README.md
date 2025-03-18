@@ -317,7 +317,7 @@ This API allows caller to get full details of the document when requested by uni
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`                | [GetDocumentDetails](https://sdk.myinvois.hasil.gov.my/einvoicingapi/08-get-document-details/#successful-response) |
-> | `400`         | `application/json`                | [Standard Response Model](#general)` |
+> | `400`         | `application/json`                | [Standard Response Model](#general) |
 
 </details>
 
@@ -352,6 +352,14 @@ This API allows issuer to cancel previously issued document, either self-induced
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`                | [CancelDocument](https://sdk.myinvois.hasil.gov.my/einvoicingapi/03-cancel-document/#outputs) |
-> | `400`         | `application/json`                | [Standard Response Model](#general)` |
+> | `400`         | `application/json`                | [Standard Response Model](#general) |
+
+#### Cancel Document Response Parameters
+> | name | data type | description | value example |
+> | -------------- | ---- | ----------- | ------------- |
+> | uuid | String | UUID of the document | `UUID` |
+> | status | String | Status of the document | `Cancelled` |
+> | badRequestModel | [Standard Response Model](#standardresponsemodel) | Details of error if the request failed. |  |
+
 
 </details>
