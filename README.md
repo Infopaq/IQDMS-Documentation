@@ -75,8 +75,8 @@ This API is used to get token for API's that need authorization
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | `Signature Token`                                |
-> | `400`         | `application/json`                | [Standard Response Model](#general)                       |
+> | `200`         | `application/json`                | `Signature Token` |
+> | `400`         | `application/json`                | [Standard Response Model](#general) |
 
 ##### Signature Token
 > | name | data type | description | value example |
@@ -110,10 +110,10 @@ This API is used to search TIN
 
 #### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | `{"isError":"false","uuid":"C25845632020"}` [Standard Response Model](#general)                            |
-> | `400`         | `application/json`                | [Standard Response Model](#general)                       |
+> | http code     | content-type | response |
+> | --- | ---- | ---------- |
+> | `200` | `application/json` | `{"isError":"false","uuid":"C25845632020"}` |
+> | `400` | `application/json` | [Standard Response Model](#general) |
 
 </details>
 
@@ -136,8 +136,8 @@ This API is used to validate TIN
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`                | `{"isError":"false","error_description":"{TIN is valid.}"}` [Standard Response Model](#general)                            |
-> | `400`         | `application/json`                | [Standard Response Model](#general)                       |
+> | `200`         | `application/json`                | `{"isError":"false","error_description":"{TIN is valid.}"}` |
+> | `400`         | `application/json`                | [Standard Response Model](#general) |
 
 </details>
 
