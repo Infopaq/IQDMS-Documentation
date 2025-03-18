@@ -52,13 +52,13 @@ This API is used to get token for API's that need authorization
 > | grant_type | String | Must be ‘client_credentials’ | | Mandatory |
 > | scope | String | Optional, can be leave blank. | | Optional |
 
-##### JSON Example
-```json
+##### JSON Sample
+```
 {
   "client_id": "your-client-id-here",
   "client_secret": "your-client-secret-here",
   "grant_type": "client_credentials",
-  "onbehalfof": "VSS",
+  "onbehalfof": "your-companyid-here",
   "scope": ""
 }
 ```
@@ -114,7 +114,7 @@ This API is used to validate TIN
 <details>
 <summary><code>GET</code></code><code><b>/api/e-invoice/ValidateTIN?companyID={companyID}&appName={appName}&tin={tin}&type={type}&value={value}</b></code></summary>
 
-#### Parameters
+#### Query Parameters
 > | name | data type | description | value example | rquirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
@@ -138,7 +138,7 @@ This API is used to submit E-Invoice
 <details>
 <summary><code>GET</code></code><code><b>/api/e-invoice/SubmitDocument?companyID={companyID}&appName={appName}&appVersion={appVersion}&isSubmit={isSubmit}&isAutoSubmit={isAutoSubmit}</b></code></summary>
 
-#### Parameters
+#### Query Parameters
 > | name | data type | description | value example | rquirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
