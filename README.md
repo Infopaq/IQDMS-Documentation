@@ -5,7 +5,7 @@
 | Name | Date       | Reason For Changes  | Version   |
 | ---- | ---------- | ------------------- | --------- |
 | Infopaq | 2025-02-13 | First Publish       | 1.0       |
-| Infopaq | 2025-03-19 | Fixed typo and Update Cancel Document API calling | 1.1 |
+| Infopaq | 2025-03-19 | Fixed typo and Update [Cancel Document](#cancel-document) API calling | 1.1 |
 
 ## General
 ### Standard Response Model for most request when Success(200)/BadRequest(400) occur.
