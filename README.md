@@ -105,7 +105,7 @@ This API is used to search TIN
 > | -------------- | ---- | ----------- | ------------- | ----------- |
 > | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
 > | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
-> | type | String | NRIC, PASSPORTY, BRN, ARMY | `BRN` | Mandatory |
+> | type | String | NRIC, PASSPORT, BRN, ARMY | `BRN` | Mandatory |
 > | value | String | The actual value of the ID Type selected. For example, if NRIC selected as ID Type, then pass the NRIC value here. | `2014087894` | Mandatory |
 
 #### Responses
