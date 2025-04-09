@@ -129,7 +129,7 @@ This API is used to validate TIN
 > | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
 > | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
 > | tin | String | The Tax Identification Number to get the validity of the tin. | `C25845632020` | Mandatory |
-> | type | String | NRIC, PASSPORTY, BRN, ARMY | `BRN` | Mandatory |
+> | type | String | NRIC, PASSPORT, BRN, ARMY | `BRN` | Mandatory |
 > | value | String | The actual value of the ID Type selected. For example, if NRIC selected as ID Type, then pass the NRIC value here. | `2014087894` | Mandatory |
 
 #### Responses
