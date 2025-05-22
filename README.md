@@ -48,7 +48,7 @@ The system recognize only YYYY-MM-DD HH:MM date time format in UTC+8.
 This API is used to get token for API's that need authorization
 
 <details>
-<summary><code>GET</code></code><code><b>/api/Token/GetToken</b></code></summary>
+<summary><code>POST</code></code><code><b>/api/Token/GetToken</b></code></summary>
 
 #### Body Parameters
 > | name | data type | description | value example | requirement |
