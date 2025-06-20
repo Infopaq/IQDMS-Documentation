@@ -103,8 +103,8 @@ This API is used to search TIN
 #### Parameters
 > | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
-> | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
-> | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
+> | companyID | String | Company ID Provided by VSS | `EIGER` | Mandatory |
+> | appName | String | Application Name Provided by VSS | `EIGER` | Mandatory |
 > | type | String | NRIC, PASSPORT, BRN, ARMY | `BRN` | Mandatory |
 > | value | String | The actual value of the ID Type selected. For example, if NRIC selected as ID Type, then pass the NRIC value here. | `2014087894` | Mandatory |
 
@@ -126,8 +126,8 @@ This API is used to validate TIN
 #### Query Parameters
 > | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
-> | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
-> | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
+> | companyID | String | Company ID Provided by VSS | `EIGER` | Mandatory |
+> | appName | String | Application Name Provided by VSS | `EIGER` | Mandatory |
 > | tin | String | The Tax Identification Number to get the validity of the tin. | `C25845632020` | Mandatory |
 > | type | String | NRIC, PASSPORT, BRN, ARMY | `BRN` | Mandatory |
 > | value | String | The actual value of the ID Type selected. For example, if NRIC selected as ID Type, then pass the NRIC value here. | `2014087894` | Mandatory |
@@ -152,8 +152,8 @@ This API is used to submit E-Invoice
 #### Query Parameters
 > | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
-> | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
-> | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
+> | companyID | String | Company ID Provided by VSS | `EIGER` | Mandatory |
+> | appName | String | Application Name Provided by VSS | `EIGER` | Mandatory |
 > | appVersion | String | Application Version | `1.0` | Mandatory |
 > | isSubmit | String | (1, 0) Used to control if a user wants to submit to the IRB or just for testing purposes. Default is 1, which will submit to the IRB, where 0 is not. | `1` | Optional |
 > | isAutoSubmit | String | (1,0) Used to control if a user wants to auto submit an invoice for more than 3 days. Default is 1, for invoice that is more than 3 days, the system will use the current date time as the e-invoice date time. | `1` | Optional |
@@ -286,8 +286,8 @@ Document with invalid status will not be returned. Details of the invalid docume
 #### Parameters
 > | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
-> | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
-> | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
+> | companyID | String | Company ID Provided by VSS | `EIGER` | Mandatory |
+> | appName | String | Application Name Provided by VSS | `EIGER` | Mandatory |
 > | uuid | String | Unique ID of the document to retrieve.  | `F9D425P6DS7D8IU` | Mandatory |
 
 #### Responses
@@ -308,8 +308,8 @@ This API allows caller to get full details of the document when requested by uni
 #### Parameters
 > | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
-> | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
-> | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
+> | companyID | String | Company ID Provided by VSS | `EIGER` | Mandatory |
+> | appName | String | Application Name Provided by VSS | `EIGER` | Mandatory |
 > | uuid | String | Unique ID of the document to retrieve.  | `F9D425P6DS7D8IU` | Mandatory |
 
 #### Responses
@@ -331,8 +331,8 @@ This API allows issuer to cancel previously issued document, either self-induced
 #### Query Parameters
 > | name | data type | description | value example | requirement |
 > | -------------- | ---- | ----------- | ------------- | ----------- |
-> | companyID | String | Company ID Provided by VSS | `GV` | Mandatory |
-> | appName | String | Application Name Provided by VSS | `GV` | Mandatory |
+> | companyID | String | Company ID Provided by VSS | `EIGER` | Mandatory |
+> | appName | String | Application Name Provided by VSS | `EIGER` | Mandatory |
 > | uuid | String | Unique ID of the document to retrieve.  | `F9D425P6DS7D8IU` | Mandatory |
 
 ### Body Parameters
@@ -382,6 +382,79 @@ This API allows issuer to cancel previously issued document, either self-induced
     "uuid": ""
   }
 }
+```
+
+</details>
+
+
+### Search DMS Document
+This API allows caller to get full list of submitted document via DMS.
+
+<details>
+<summary><code>GET</code></code><code><b>/api/e-invoice/SearchDMSCompany?companyID={companyID}&appName={appName}</b></code></summary>
+
+#### Parameters
+> | Name                 | Type     | Description                                                   | Example              | Required   |
+> |----------------------|----------|---------------------------------------------------------------|-----------------------|------------|
+> | `companyID`          | string   | Company ID provided by VSS                                    | `EIGER`                  | Mandatory     |
+> | `appName`            | string   | Application name provided by VSS                              | `EIGER`                  | Mandatory     |
+> | `uuid`               | string   | Unique document identifier (UUID)                             | `F9D425P6DS7D8IU`     | Optional |
+> | `status`             | string   | Document status: `Valid`, `Invalid`, `Cancelled`, `Submitted` | `Valid`               | Optional |
+> | `documentType`       | string   | Document type code (e.g. `01`, `02`, ..., `14`)                | `01`                  | Optional |
+> | `submissionDateFrom` | string   | Filter documents submitted on or after this date (`YYYY-MM-DD`) | `2025-01-01`        | Optional |
+> | `submissionDateTo`   | string   | Filter documents submitted on or before this date (`YYYY-MM-DD`) | `2025-01-31`       | Optional |
+
+#### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`                | [DMDocResponse] |
+> | `400`         | `application/json`                | [Standard Response Model](#general) |
+
+#### Search DMS Document Response Parameters
+> | name | data type | description |
+> | -------------- | ---- | ----------- |
+> | companyID | String | Company ID of the document |
+> | tin | String | TIN of the document |
+> | docRefNo | String | Reference Number of the document |
+> | docDate | String | Bill Date of the document |
+> | eInvoiceDate | String | E-InvoiceDate of the document |
+> | Amount | Decimal | Amount of the document |
+> | uuid | String | UUID of the document |
+> | longID | String | Long ID of the document |
+> | submitted | DateTime | Submitted Date Time of the document |
+> | confirmed | DateTime | Confirmed Date Time of the document |
+> | rejected | DateTime | Rejected Date Time of the document |
+> | cancelled | DateTime | Cancelled Date Time of the document |
+> | statusReason | String | Reject/Cancel reason of the document |
+> | eInvStatus | String | E-Inovice Status of the document |
+> | eInvTypeCode | String | E-Invoice Type Code of the document |
+> | appName | String | AppName of the document |
+> | appName | String | AppVersion of the document |
+> | isSandbox | bool | Sandbox/Production document |
+
+##### Sample Response
+```
+{
+    "companyID": "JSB",
+    "tin": "C1234567890",    
+    "docRefNo": "INV-000001",
+    "docDate": "2025-01-01T00:00:00",
+    "eInvoiceDate": "2025-01-01T00:00:00.00",
+    "amount": 25.00,
+    "uuid": "",
+    "longID": "",
+    "submitted": "2025-01-01T00:00:00",
+    "confirmed": "2025-01-01T00:01:00"
+    "rejected": null,
+    "cancelled": null,
+    "statusReason": "",
+    "eInvStatus": "Valid",
+    "eInvTypeCode": "01",
+    "appName": "INFOPAQ",
+    "appVersion": "1",
+    "isSandbox": false,
+  }
 ```
 
 </details>
